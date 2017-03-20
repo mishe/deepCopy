@@ -4,7 +4,7 @@
 
 ## 简单实现 JS的深拷贝 [deepCopy-simple.js](https://github.com/mishe/deepCopy/blob/master/deepCopy-simple.js)
 
-> 有一个坑要：那就是循环赋值问题没有解决
+> 有一个坑：那就是循环赋值问题没有解决
 
 详见 [@155 JS深拷贝碰到的问题](https://github.com/mishe/blog/issues/155)
 
