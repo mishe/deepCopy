@@ -17,3 +17,49 @@
 经过测试，完美的解决了循环引用的问题
 
 !! 但发现没有完好的实现复制的功能，比如：obj1.k.c===obj2.k.c 因此，还需要解决引用问题。
+
+## 最终方案
+
+ 基本解决深拷贝问题，虽然不完美，但已经可以使用了.
+ 
+ 测试代码：
+ ```
+    var o1 = {a: 1}, o2 = {b: o1}, o3 = {c: o2};
+
+    var obj1 = {
+        a: 11,
+        b: 'bb',
+        c: new Date(),
+        d: function aa() {
+            return 2
+        },
+        e: [1, 2, 3],
+        f: new Error('error'),
+        g: document.body,
+        h: new RegExp(/[111]/),
+        i: o1,
+        j: o2,
+        k: o3,
+        l: {a: o1}
+    };
+
+    obj1.m = obj1;
+    obj1.n = {
+        a: o1,
+        b: {
+            b: obj1.d,
+            c: obj1.i,
+            d: obj1.l
+        }
+    };
+    o1.b = obj1;
+    
+    obj2 = deepCopy(obj1)
+    console.log(obj1.a==obj2.a)
+    console.log(obj1.h==obj2.h)
+    console.log(obj1.i==obj2.i)
+    console.log('obj1.i.b----'+(obj1.i.b==obj2.i.b));
+    console.log(obj1.k==obj2.k)
+    console.log(obj1.k.c==obj2.k.c)
+
+ ```
