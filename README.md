@@ -18,7 +18,7 @@
 
 !! 但发现没有完好的实现复制的功能，比如：obj1.k.c===obj2.k.c 因此，还需要解决引用问题。
 
-## 最终方案
+## 最终方案 [deepCopy.js](https://github.com/mishe/deepCopy/blob/master/deepCopy.js)
 
  基本解决深拷贝问题，虽然不完美，但已经可以使用了.
  
